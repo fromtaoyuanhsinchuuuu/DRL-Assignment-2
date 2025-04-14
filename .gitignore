@@ -6,6 +6,7 @@ __pycache__/
 .env
 weights/ 
 weights_prev/
+training.out
 
 # ignore eval.py
 # eval.py

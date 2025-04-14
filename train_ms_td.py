@@ -104,11 +104,7 @@ class MSTDTrainer:
         board_str += "+------+------+------+------+"
         print(board_str)
 
-<<<<<<< HEAD
-    def train_stage(self, stage, network=None, start_data=None, num_episodes=5000000, initial_alpha=0.01,
-=======
     def train_stage(self, stage, network=None, start_data=None, num_episodes=5000000, initial_alpha=0.1,
->>>>>>> 6cd5a1f8361830142300977858ce3f2b152ffacf
                     alpha_decay_episodes=1000000, min_alpha=0.00025, eval_interval=10000, n_step=5, gamma=1.0):
         # 列印參數信息以進行調試
         print(f"\nIn train_stage method: stage={stage}, num_episodes={num_episodes}, eval_interval={eval_interval}")
