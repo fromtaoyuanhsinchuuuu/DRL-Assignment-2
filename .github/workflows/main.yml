@@ -3,9 +3,9 @@ name: Python Application Test
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [ main , rescue-branch]
   pull_request:
-    branches: [ main ]
+    branches: [ main, rescue-branch ]
 
 jobs:
   build:
@@ -27,9 +27,19 @@ jobs:
       run: |
         pip install gym
         pip install -r requirements.txt
+        # Install gdown separately for downloading weights
+        pip install gdown
 
-    - name: 3. Ensure env.so is executable
+    - name: 3. Download weights from Google Drive
+      run: |
+        # Download the folder content into a directory named 'weights'
+        # Ensure the GDrive folder is shared publicly (anyone with the link can view)
+        gdown --folder 19YTbPzI5_nOUHyI-m-uqZ41QEQMrGWuC -O weights --remaining-ok
+
+    - name: 4. Ensure env.so is executable
       run: chmod +x env.cpython-38-x86_64-linux-gnu.so
+      # Renumbered step
 
-    - name: 4. Run Evaluation
+    - name: 5. Run Evaluation
       run: python eval.py --token a91aae52cff9ef65932db06b150ffd47
+      # Renumbered step

@@ -20,12 +20,21 @@ class MSTDTrainer:
 
         # Stage conditions
         self.stage_conditions = [
+<<<<<<< HEAD
             lambda s: self._has_tile(s, 512),   # Stage 1 -> 2: First 512 tile
             lambda s: self._has_tile(s, 1024),   # Stage 2 -> 3: First 1024 tile
             lambda s: self._has_tile(s, 2048),   # Stage 3 -> 4: First 2048 tile
             lambda s: self._has_tile(s, 4096),   # Stage 4 -> 5: First 4096 tile
             # Stage 5 -> ?: Maybe target 8192 or a combination
             lambda s: self._has_tile(s, 8192),
+=======
+            lambda s: self._has_tile(s, 1024),   # Stage 1 -> 2: First 1024 tile
+            lambda s: self._has_tile(s, 2048),   # Stage 2 -> 3: First 2048 tile
+            lambda s: self._has_tile(s, 4096),   # Stage 3 -> 4: First 4096 tile
+            lambda s: self._has_tile(s, 8192),   # Stage 4 -> 5: First 8192 tile
+            # Stage 5 -> ?: Maybe target 16384 or a combination
+            lambda s: self._has_tile(s, 16384),
+>>>>>>> 6cd5a1f8361830142300977858ce3f2b152ffacf
         ]
 
     def _has_tile(self, state, value):
@@ -95,7 +104,11 @@ class MSTDTrainer:
         board_str += "+------+------+------+------+"
         print(board_str)
 
+<<<<<<< HEAD
     def train_stage(self, stage, network=None, start_data=None, num_episodes=5000000, initial_alpha=0.01,
+=======
+    def train_stage(self, stage, network=None, start_data=None, num_episodes=5000000, initial_alpha=0.1,
+>>>>>>> 6cd5a1f8361830142300977858ce3f2b152ffacf
                     alpha_decay_episodes=1000000, min_alpha=0.00025, eval_interval=10000, n_step=5, gamma=1.0):
         # 列印參數信息以進行調試
         print(f"\nIn train_stage method: stage={stage}, num_episodes={num_episodes}, eval_interval={eval_interval}")

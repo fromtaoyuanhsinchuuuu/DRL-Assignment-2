@@ -4,7 +4,11 @@ argparse
 torch
 matplotlib
 numpy==1.24.4
+<<<<<<< HEAD
 minigrid
+=======
+gym-minigrid
+>>>>>>> 6cd5a1f8361830142300977858ce3f2b152ffacf
 gymnasium
 imageio
 IPython
